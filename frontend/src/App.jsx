@@ -27,6 +27,9 @@ import AdminContactManage from "./components/AdminDashboard/AdminContactManage";
 import LoginComponent from "./components/Authentication/LoginComponent";
 import ProtectedRoute from "./components/context/ProtectedRoute";
 import AdminManageSubscribes from "./components/AdminDashboard/AdminManageSubscribes";
+import AdminRoadMap from "./components/AdminDashboard/AdminRoadMap";
+import AdminManageRoadmap from "./components/AdminDashboard/AdminManageRoadmap";
+
 const App = () => {
   return (
     <div className="max-w-[90%] mx-auto">
@@ -66,6 +69,8 @@ const App = () => {
           <Route path="create-course" element={<AdminCreateNewCourse />} />
           <Route path="create-project" element={<AdminCreateNewProject />} />
           <Route path="add-member" element={<AdminAddMember />} />
+          <Route path="roadmap" element={<AdminRoadMap />} />
+          <Route path="roadmap/:id" element={<AdminManageRoadmap />} />
           <Route path="manage-courses" element={<AdminManageCourses />} />
           <Route path="manage-members" element={<AdminManageMembers />} />
           <Route path="manage-feedbacks" element={<AdminManageFeedback />} />

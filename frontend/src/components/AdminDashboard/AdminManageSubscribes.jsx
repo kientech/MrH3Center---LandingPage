@@ -35,9 +35,9 @@ const AdminManageSubscribes = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className="w-full mx-auto mt-10 mr-10 relative overflow-x-auto max-h-[800px] shadow-md sm:rounded-lg">
       <h1 className="text-2xl font-bold mb-5">Manage Subscribes</h1>
-      <table className="min-w-full bg-white border border-gray-200">
+      <table className="w-full min-w-max text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  ">
         <thead>
           <tr>
             <th className="py-2 px-4 border-b">Email</th>

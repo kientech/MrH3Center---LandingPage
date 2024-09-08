@@ -35,27 +35,27 @@ const AdminManageFeedback = () => {
   };
 
   return (
-    <div className="w-full mx-auto mt-10 mr-10">
-      <h1 className="text-2xl  font-bold mb-6">Manage Feedback</h1>
+    <div className="w-full mx-auto mt-10 mr-10 relative overflow-x-auto max-h-[800px] shadow-md sm:rounded-lg">
+      <h1 className="text-2xl font-bold mb-6">Manage Feedback</h1>
       <Link to="/admin/add-feedback">
         <button className="mb-4 w-[200px] bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-400 transition-all font-bold">
-            New Feedback
+          New Feedback
         </button>
       </Link>
-      <table className="w-full border-collapse">
-        <thead>
+      <table className="w-full min-w-max text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th className="border p-4">Full Name</th>
-            <th className="border p-4">Feedback Content</th>
-            <th className="border p-4">Course</th>
-            <th className="border p-4">Rating</th>
-            <th className="border p-4">Actions</th>
+            <th className="px-6 sticky left-0 z-50 py-3">Full Name</th>
+            <th className="px-6 py-3">Feedback Content</th>
+            <th className="px-6 py-3">Course</th>
+            <th className="px-6 py-3">Rating</th>
+            <th className="px-6 py-3">Actions</th>
           </tr>
         </thead>
         <tbody>
           {feedbacks.map((feedback) => (
             <tr key={feedback._id}>
-              <td className="border p-4">{feedback.feedbackName}</td>
+              <td className="border p-4 sticky left-0 font-bold">{feedback.feedbackName}</td>
               <td className="border p-4">{feedback.feedbackDescription}</td>
               <td className="border p-4">{feedback.position}</td>
               <td className="border p-4">{feedback.rating}</td>
@@ -68,7 +68,7 @@ const AdminManageFeedback = () => {
                 </Link>
                 <button
                   onClick={() => handleDelete(feedback._id)}
-                  className="text-red-500 hover:underline ml-4"
+                  className="text-red-500 bg-red-100 hover:underline ml-4 px-2 py-1 rounded-lg"
                 >
                   Delete
                 </button>

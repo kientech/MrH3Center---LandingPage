@@ -8,6 +8,7 @@ const memberRoutes = require("./routes/memberRoute");
 const feedbackRoutes = require("./routes/feedbackRoute");
 const contactRoutes = require("./routes/contactRoute");
 const subcribeRoutes = require("./routes/subcribeRoute");
+const roadmapRoutes = require("./routes/roadmapRoute");
 
 const app = express();
 const PORT = 3000;
@@ -29,7 +30,7 @@ app.use("/api", memberRoutes);
 app.use("/api", feedbackRoutes);
 app.use("/api", contactRoutes);
 app.use("/api", subcribeRoutes);
-
+app.use("/api/roadmap", roadmapRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is listenning on port ${PORT}`);

@@ -40,7 +40,7 @@ const FeedbackComponent = () => {
         <Swiper
           className="mySwiper"
           spaceBetween={10}
-          slidesPerView={3}
+          slidesPerView={1}
           loop={true}
           centeredSlides={false}
           autoplay={{
@@ -54,7 +54,7 @@ const FeedbackComponent = () => {
           modules={[Autoplay, Pagination, Navigation]}
           breakpoints={{
             1024: {
-              slidesPerView: 1,
+              slidesPerView: 3,
               spaceBetween: 10,
             },
           }}
