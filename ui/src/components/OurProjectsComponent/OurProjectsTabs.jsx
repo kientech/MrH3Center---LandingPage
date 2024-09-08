@@ -33,7 +33,6 @@ const OurProjectsTabs = () => {
     setValue(newValue);
   };
 
-  // Filter projects by category
   const filterProjects = (tag) => {
     return projects.filter((project) => project.tag === tag);
   };
@@ -49,11 +48,11 @@ const OurProjectsTabs = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div className="grid md:grid-cols-3 md:gap-8 grid-cols-1 gap-4">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-4 ">
           {projects.map((project) => (
             <OurProjectItem
               key={project._id}
-              projectImage={project.image} // Replace with actual image URL
+              projectImage={project.image} 
               projectTag={project.tag}
               projectName={project.name}
               author={project.author}

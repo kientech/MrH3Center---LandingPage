@@ -1,5 +1,6 @@
 import React from 'react'
 import { HiHeart } from "react-icons/hi2";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const OurTeamItem = ({imageUrl, memberName, memberPosition, facebookLink, instagramLink, xLink}) => {
   return (
@@ -15,13 +16,13 @@ const OurTeamItem = ({imageUrl, memberName, memberPosition, facebookLink, instag
                 <div className='h-0.5 w-[90%]  bg-gray-200 my-4'></div>
                 <div className='flex items-center gap-x-6'>
                     <a href={facebookLink}>
-                        <HiHeart />
+                        <FaFacebookF />
                     </a>
                     <a href={xLink}>
-                        <HiHeart />
+                        <FaInstagram />
                     </a>
                     <a href={instagramLink}>
-                        <HiHeart />
+                        <FaTwitter />
                     </a>
                 </div>
             </div>

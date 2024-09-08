@@ -16,6 +16,7 @@ const OurProjectItem = ({
   };
 
   const handleCloseModal = () => {
+    console.log("Close button clicked"); // Kiểm tra xem sự kiện có được kích hoạt hay không
     setIsModalOpen(false);
   };
 
@@ -36,6 +37,7 @@ const OurProjectItem = ({
       document.removeEventListener("mousedown", handleOverlayClick);
     };
   }, [isModalOpen]);
+
   return (
     <div
       onClick={handleButtonClick}
@@ -48,20 +50,21 @@ const OurProjectItem = ({
           className="w-full h-full rounded-lg group-hover:scale-105 transition-all object-cover block"
         />
       </div>
-      <div className="pt-8 pb-6 md:px-6  rounded-lg">
-        <span className="font-primary inline-block px-3 py-2 bg-green-100 text-red-400 rounded-lg">
+      <div className="p-4 rounded-lg">
+        <span className="font-primary inline-block md:px-3 md:py-2 p-2 bg-green-100 text-red-400 rounded-lg">
           {projectTag}
         </span>
-        <h1 className="text-xl font-bold group-hover:text-green-700 text-gray-950 mt-4 title_project">
+        <h1 className="md:text-xl text-md font-bold group-hover:text-green-700 text-gray-950 mt-4 title_project">
           {projectName}
         </h1>
       </div>
 
       {isModalOpen && (
-        <div className="font-primary py-10 fixed inset-0 bg-black z-50 bg-opacity-50 flex items-center justify-center overflow-y-auto">
+        <div className="font-primary px-4 pt-40 md:p-10 fixed inset-0 bg-black z-50 bg-opacity-50 flex items-center justify-center overflow-y-auto">
           <div
             ref={modalRef}
-            className="bg-white p-8 rounded-lg shadow-lg md:max-w-4xl max-w-md   w-full relative"
+            className="bg-white p-8 rounded-lg shadow-lg md:max-w-4xl max-w-md w-full relative"
+            onClick={(e) => e.stopPropagation()} // Ngăn chặn sự kiện click từ overlay
           >
             <button
               onClick={handleCloseModal}

@@ -17,7 +17,6 @@ const App = () => {
   return (
     <div className="max-w-[90%] mx-auto">
       <Routes>
-        {/* User-facing routes */}
         <Route
           path="/"
           element={

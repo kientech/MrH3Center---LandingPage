@@ -10,6 +10,7 @@ import {
 import { toast } from "react-toastify";
 
 const ContactFormComponent = () => {
+  const [loading, setLoading] = useState(false);
   const [interests, setInterests] = useState({
     web: false,
     app: false,
@@ -39,13 +40,13 @@ const ContactFormComponent = () => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Vui lòng điền đầy đủ thông tin.");
+      toast.error("Please fill in all information.");
       return;
     }
-
+    setLoading(true);
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxSDfL4i6q_HEjMNdZIZoBri89J70wqYlMesElGREuwHnjuCBAXEX1rBFutEiGKaTIs1A/exec",
+        "https://script.google.com/macros/s/AKfycbxBdekQg0LCYurlsST5rzIS2b4RIOdZ0jPzRjeMCtmiJmAz3SlMyLdAVKVvsHnAxPQcfA/exec",
         {
           method: "POST",
           headers: {
@@ -58,13 +59,14 @@ const ContactFormComponent = () => {
             web: interests.web,
             app: interests.app,
             ml: interests.ml,
+            timestamp: new Date().toLocaleString(),
           }),
         }
       );
 
       const data = await response.json();
       if (data.status === "success") {
-        toast.success("Thông tin đã được gửi thành công!");
+        toast.success("Send Message Successfully!");
         setFormData({
           name: "",
           email: "",
@@ -76,11 +78,13 @@ const ContactFormComponent = () => {
           ml: false,
         });
       } else {
-        toast.error("Gửi thông tin thất bại. Vui lòng thử lại.");
+        toast.error("Sending information failed. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Đã xảy ra lỗi. Vui lòng thử lại.");
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -217,7 +221,7 @@ const ContactFormComponent = () => {
             type="submit"
             className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
           >
-            Send
+            {loading ? "Sending..." : "Send"}
           </button>
         </form>
       </div>

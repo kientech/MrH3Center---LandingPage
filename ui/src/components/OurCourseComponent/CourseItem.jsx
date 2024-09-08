@@ -69,7 +69,7 @@ const CourseItem = ({
       </div>
 
       {isModalOpen && (
-        <div className="p-4 fixed inset-0 bg-black z-50 bg-opacity-50 flex items-center justify-center overflow-y-auto">
+        <div className="p-4 md:pt-20 fixed inset-0 bg-black z-50 bg-opacity-50 pt-40  flex items-center justify-center overflow-y-auto">
           <div
             ref={modalRef}
             className="bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full relative"
